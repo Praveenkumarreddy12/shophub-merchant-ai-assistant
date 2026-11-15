@@ -1,0 +1,30 @@
+
+{
+    "name": "ShopHub Orders Agent",
+    "description": "An independent agent responsible for merchant order operations.",
+    "url": "http://127.0.0.1:8001/rpc",
+    "version": "1.0.0",
+    "protocol": "JSON-RPC 2.0",
+    "skills": [
+        {
+            "id": "get_orders",
+            "name": "Get Orders",
+            "description": "Retrieve orders belonging to the authenticated merchant."
+        },
+        {
+            "id": "lookup_order",
+            "name": "Lookup Order",
+            "description": "Find a particular order using its ID."
+        },
+        {
+            "id": "refund_order",
+            "name": "Refund Order",
+            "description": "Request a refund for an order."
+        },
+        {
+            "id": "cancel_order",
+            "name": "Cancel Order",
+            "description": "Cancel an eligible order."
+        }
+    ]
+}
