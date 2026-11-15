@@ -2,6 +2,10 @@
 import os
 import httpx
 
+from fastapi import Header
+
+from langgraph.types import interrupt
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -93,6 +97,7 @@ async def get_orders(
     authorization: str,
     status: str = None
 ):
+    
     params = {}
 
     if status:
@@ -124,6 +129,15 @@ async def refund_order(
     authorization: str,
     order_id: str
 ):
+    decision = interrupt({
+        "type": "refund_approval",
+        "order_id": order_id,
+        "message": "Waiting for merchant approval"
+    })
+
+    if decision != "approve":
+        return "Refund rejected by merchant."
+    
     return await call_store_api(
         method="POST",
         endpoint="/orders/refund",
