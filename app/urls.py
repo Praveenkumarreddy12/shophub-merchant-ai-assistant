@@ -4,7 +4,7 @@ import sqlite3
 from fastapi import APIRouter, Depends, Header, HTTPException
 from pydantic import BaseModel, Field
 
-from connection import get_connection
+from .connection import get_connection
 
 
 router = APIRouter()

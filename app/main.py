@@ -5,8 +5,8 @@ import uvicorn
 from fastapi import FastAPI
 
 
-from connection import initialize_database
-from urls import router
+from .connection import initialize_database
+from .urls import router
 
 
 @asynccontextmanager
